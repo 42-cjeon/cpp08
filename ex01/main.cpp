@@ -6,14 +6,14 @@
 /*   By: cjeon <cjeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 01:53:24 by cjeon             #+#    #+#             */
-/*   Updated: 2022/03/22 03:31:06 by cjeon            ###   ########.fr       */
+/*   Updated: 2022/03/22 03:48:56 by cjeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <vector>
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
+#include <vector>
 
 #include "Exceptions.hpp"
 #include "Span.hpp"
@@ -67,7 +67,7 @@ int main(void) {
   }
   std::cout << "--- add with iterator ---" << std::endl;
   {
-    Span sp(10); 
+    Span sp(10);
 
     std::vector<int> v(10);
     for (int i = 0; i < 10; ++i) {
@@ -79,7 +79,7 @@ int main(void) {
   }
   std::cout << "--- add with iterator(exception) ---" << std::endl;
   {
-    Span sp(10); 
+    Span sp(10);
 
     std::vector<int> v(11);
     for (int i = 0; i < 11; ++i) {

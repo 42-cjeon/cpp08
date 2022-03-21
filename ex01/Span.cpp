@@ -6,7 +6,7 @@
 /*   By: cjeon <cjeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 04:18:31 by cjeon             #+#    #+#             */
-/*   Updated: 2022/03/22 03:42:52 by cjeon            ###   ########.fr       */
+/*   Updated: 2022/03/22 03:49:00 by cjeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ void Span::addNumber(int k) {
   data_.insert(k);
 }
 
-unsigned int Span::calcInterval(int x, int y) const
-{
+unsigned int Span::calcInterval(int x, int y) const {
   unsigned int offset = INT_MAX + 1U;
   unsigned int ux = x + offset;
   unsigned int uy = y + offset;
@@ -55,7 +54,8 @@ unsigned int Span::shortestSpan(void) const {
     throw InvalidOperationException();
   }
   unsigned int shortest_span = UINT_MAX;
-  for (std::multiset<int>::const_iterator it = data_.begin(); std::next(it, 1) != data_.end(); ++it) {
+  for (std::multiset<int>::const_iterator it = data_.begin();
+       std::next(it, 1) != data_.end(); ++it) {
     unsigned int span = calcInterval(*it, *std::next(it, 1));
     if (span < shortest_span) {
       shortest_span = span;
