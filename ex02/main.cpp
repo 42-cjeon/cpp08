@@ -6,13 +6,14 @@
 /*   By: cjeon <cjeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 14:32:53 by cjeon             #+#    #+#             */
-/*   Updated: 2022/03/23 13:40:30 by cjeon            ###   ########.fr       */
+/*   Updated: 2022/03/23 13:54:29 by cjeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "MutantStack.hpp"
 #include <vector>
+
+#include "MutantStack.hpp"
 
 int main(void) {
   std::cout.setf(std::ios::boolalpha);
@@ -48,7 +49,18 @@ int main(void) {
       std::cout << *it << std::endl;
     }
     std::cout << ":REVERSE-ITERATOR:" << std::endl;
-    for (MutantStack<int>::reverse_iterator it = ms.rbegin(); it != ms.rend(); ++it) {
+    for (MutantStack<int>::reverse_iterator it = ms.rbegin(); it != ms.rend();
+         ++it) {
+      std::cout << *it << std::endl;
+    }
+    std::cout << ":CONST-ITERATOR:" << std::endl;
+    for (MutantStack<int>::const_iterator it = ms.begin(); it != ms.end();
+         ++it) {
+      std::cout << *it << std::endl;
+    }
+    std::cout << ":CONST-REVERSE-ITERATOR:" << std::endl;
+    for (MutantStack<int>::const_reverse_iterator it = ms.rbegin();
+         it != ms.rend(); ++it) {
       std::cout << *it << std::endl;
     }
   }
@@ -92,16 +104,19 @@ int main(void) {
     for (int i = 0; i < 10; ++i) {
       ms2.push(str.substr(0, 10 - i));
     }
-    for (MutantStack<std::string>::iterator it = ms.begin(); it != ms.end(); ++it) {
+    for (MutantStack<std::string>::iterator it = ms.begin(); it != ms.end();
+         ++it) {
       std::cout << *it << std::endl;
     }
-    for (MutantStack<std::string>::iterator it = ms2.begin(); it != ms2.end(); ++it) {
+    for (MutantStack<std::string>::iterator it = ms2.begin(); it != ms2.end();
+         ++it) {
       std::cout << *it << std::endl;
     }
   }
   std::cout << "--- some other container ---" << std::endl;
   {
-    typedef MutantStack<std::string, std::vector<std::string> >  MutantMutantStack;
+    typedef MutantStack<std::string, std::vector<std::string> >
+        MutantMutantStack;
     MutantMutantStack ms;
     std::string str("");
     for (int i = 0; i < 10; ++i) {

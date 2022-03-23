@@ -6,7 +6,7 @@
 /*   By: cjeon <cjeon@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 14:32:45 by cjeon             #+#    #+#             */
-/*   Updated: 2022/03/23 13:37:41 by cjeon            ###   ########.fr       */
+/*   Updated: 2022/03/23 13:54:38 by cjeon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class MutantStack {
   typedef typename Container::reverse_iterator reverse_iterator;
   typedef typename Container::const_reverse_iterator const_reverse_iterator;
 
-  explicit MutantStack(const Container &cont = Container());
+  explicit MutantStack(const Container &cont = Container()) : c(cont) {}
   MutantStack(const MutantStack &other) : c(other.c) {}
   ~MutantStack(void) {}
   MutantStack &operator=(const MutantStack &other) {
